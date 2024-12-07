@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:news/app_theme.dart';
 
 class HomeDrawer extends StatelessWidget {
-  void Function(DrawerItem) onItemSelected ;
-  HomeDrawer ({
+ final void Function(DrawerItem) onItemSelected ;
+ const HomeDrawer ({super.key, 
     required this.onItemSelected
     });
 
@@ -36,8 +36,8 @@ class HomeDrawer extends StatelessWidget {
                       onTap: () =>onItemSelected(DrawerItem.categories) ,
                       child: Row(
                         children: [
-                          Icon(Icons.menu),
-                          SizedBox(width: 8,),
+                          const Icon(Icons.menu),
+                          const SizedBox(width: 8,),
                           Text("Categories",
                             style: tittleLargeStyle ?.copyWith(color: AppTheme.black),
                           ),
@@ -46,14 +46,14 @@ class HomeDrawer extends StatelessWidget {
                       ),
                     ),
 
-                    SizedBox(height: 12,),
+                    const SizedBox(height: 12,),
 
                     GestureDetector(
                       onTap: () =>onItemSelected(DrawerItem.settings),
                       child: Row(
                         children: [
-                          Icon(Icons.settings),
-                           SizedBox(width: 8,),
+                          const Icon(Icons.settings),
+                           const SizedBox(width: 8,),
                           Text("Settings",
                             style: tittleLargeStyle ?.copyWith(color: AppTheme.black),
                            ),

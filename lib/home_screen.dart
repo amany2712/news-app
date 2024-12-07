@@ -9,6 +9,8 @@ import 'package:news/settings/settings_tab.dart';
 class HomeScreen extends StatefulWidget {
 static const String routeHome = '/home';
 
+  const HomeScreen({super.key});
+
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -18,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: AppTheme.white,
         image: DecorationImage(image: AssetImage('assets/images/pattern.png'))
       ),
@@ -37,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
            ? CategoryDetails( selectedCategory!.id, ) 
            : selectedDrawerItem == DrawerItem.categories
                ? CategoriesGrid(onCategorySelected: onCategorySelected,) 
-               : SettingsTab(),
+               : const SettingsTab(),
       ),
     );
   }

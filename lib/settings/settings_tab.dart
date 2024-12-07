@@ -5,6 +5,6 @@ class SettingsTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text("settings"));
+    return const Center(child: Text("settings"));
   }
 }

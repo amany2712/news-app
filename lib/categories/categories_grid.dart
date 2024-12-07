@@ -4,17 +4,17 @@ import 'package:news/categories/category_item.dart';
 import 'package:news/models/category_model.dart';
 
 class CategoriesGrid extends StatelessWidget {
-   CategoriesGrid({
+   const CategoriesGrid({super.key, 
     required this.onCategorySelected
     });
 
-  void Function (CategoryModel) onCategorySelected;
+   final  void Function (CategoryModel) onCategorySelected;
 
   @override
   Widget build(BuildContext context) {
     final categories = List.generate(
       6,
-       (index) => CategoryModel(
+       (index) => const CategoryModel(
         id: 'id', 
         name: 'sport',
          imageName: 'ball',
@@ -39,7 +39,7 @@ class CategoriesGrid extends StatelessWidget {
           ),
           Expanded(
             child: GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 crossAxisSpacing: 24,
                 mainAxisSpacing: 24,

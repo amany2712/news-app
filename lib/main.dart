@@ -3,7 +3,7 @@ import 'package:news/app_theme.dart';
 import 'package:news/home_screen.dart';
 
 void main() {
-  runApp(NewsApp());
+  runApp(const NewsApp());
 }
 
 class NewsApp extends StatelessWidget {
@@ -14,7 +14,7 @@ class NewsApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        HomeScreen.routeHome :(_) => HomeScreen(),
+        HomeScreen.routeHome :(_) => const HomeScreen(),
       },
       initialRoute: HomeScreen.routeHome ,
       theme: AppTheme.lightTheme,
