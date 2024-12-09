@@ -7,7 +7,7 @@ import 'package:news/models/category_model.dart';
 import 'package:news/settings/settings_tab.dart';
 
 class HomeScreen extends StatefulWidget {
-static const String routeHome = '/home';
+  static const String routeHome = '/home';
 
   const HomeScreen({super.key});
 
@@ -16,47 +16,47 @@ static const String routeHome = '/home';
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        color: AppTheme.white,
-        image: DecorationImage(image: AssetImage('assets/images/pattern.png'))
-      ),
+          color: AppTheme.white,
+          image:
+              DecorationImage(image: AssetImage('assets/images/pattern.png'))),
       child: Scaffold(
         appBar: AppBar(
-          title:Text(
-            selectedCategory !=null 
-            ? selectedCategory!.name
-            :selectedDrawerItem == DrawerItem.categories
-               ? "News App"
-               : "Settings"
-               ) ,
+          title: Text(selectedCategory != null
+              ? selectedCategory!.name
+              : selectedDrawerItem == DrawerItem.categories
+                  ? "News App"
+                  : "Settings"),
         ),
         drawer: HomeDrawer(onItemSelected: onDrawerItemSelected),
-        body:selectedCategory !=null 
-           ? CategoryDetails( selectedCategory!.id, ) 
-           : selectedDrawerItem == DrawerItem.categories
-               ? CategoriesGrid(onCategorySelected: onCategorySelected,) 
-               : const SettingsTab(),
+        body: selectedCategory != null
+            ? CategoryDetails(
+                selectedCategory!.id,
+              )
+            : selectedDrawerItem == DrawerItem.categories
+                ? CategoriesGrid(
+                    onCategorySelected: onCategorySelected,
+                  )
+                : const SettingsTab(),
       ),
     );
   }
 
   DrawerItem selectedDrawerItem = DrawerItem.categories;
-  CategoryModel ? selectedCategory ;
+  CategoryModel? selectedCategory;
 
-  void onDrawerItemSelected (DrawerItem item ) {
-    selectedDrawerItem =  item;
+  void onDrawerItemSelected(DrawerItem item) {
+    selectedDrawerItem = item;
     selectedCategory = null;
 
     setState(() {});
     Navigator.of(context).pop();
-
   }
 
-  void onCategorySelected (CategoryModel category ){
+  void onCategorySelected(CategoryModel category) {
     selectedCategory = category;
     setState(() {});
   }

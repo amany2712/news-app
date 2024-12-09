@@ -14,12 +14,11 @@ class NewsApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        HomeScreen.routeHome :(_) => const HomeScreen(),
+        HomeScreen.routeHome: (_) => const HomeScreen(),
       },
-      initialRoute: HomeScreen.routeHome ,
+      initialRoute: HomeScreen.routeHome,
       theme: AppTheme.lightTheme,
       themeMode: ThemeMode.light,
-
     );
   }
 }
