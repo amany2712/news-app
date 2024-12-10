@@ -1,6 +1,4 @@
-
 import 'package:news/models/news_response/article.dart';
-
 
 class NewsResponse {
   final String? status;
@@ -16,6 +14,4 @@ class NewsResponse {
             ?.map((e) => News.fromJson(e as Map<String, dynamic>))
             .toList(),
       );
-
-  
 }

@@ -5,7 +5,10 @@ import 'package:news/widgets/error_indicator.dart';
 import 'package:news/widgets/loading_indicator.dart';
 
 class NewsList extends StatelessWidget {
-  const NewsList(this.sourceId,{super.key,});
+  const NewsList(
+    this.sourceId, {
+    super.key,
+  });
 
   final String sourceId;
 
@@ -13,22 +16,19 @@ class NewsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return FutureBuilder(
       future: APIService.getNews(sourceId),
-       builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting){
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
           return const LoadingIndicator();
-        }else if (snapshot.hasError || snapshot.data?.status != 'ok'){
+        } else if (snapshot.hasError || snapshot.data?.status != 'ok') {
           return const ErrorIndicator();
-        }else {
+        } else {
           final newList = snapshot.data?.news ?? [];
           return ListView.builder(
-              itemBuilder: (_, index) =>  NewsItem(newList[index]),
-              itemCount: newList.length,
-              );
-
+            itemBuilder: (_, index) => NewsItem(newList[index]),
+            itemCount: newList.length,
+          );
         }
-      
-    },);
-    
-     
+      },
+    );
   }
 }

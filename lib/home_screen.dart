@@ -4,6 +4,7 @@ import 'package:news/categories/categories_grid.dart';
 import 'package:news/categories/category_details.dart';
 import 'package:news/drawer/home_drawer.dart';
 import 'package:news/models/category_model.dart';
+import 'package:news/search/search_delegate.dart';
 import 'package:news/settings/settings_tab.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -30,6 +31,19 @@ class _HomeScreenState extends State<HomeScreen> {
               : selectedDrawerItem == DrawerItem.categories
                   ? "News App"
                   : "Settings"),
+          actions: [
+            IconButton(
+              icon: const Icon(
+                Icons.search,size: 35,
+              ),
+              onPressed: () {
+                showSearch(
+                  context: context,
+                  delegate: NewsSearchDelegate(),
+                );
+              },
+            ),
+          ],
         ),
         drawer: HomeDrawer(onItemSelected: onDrawerItemSelected),
         body: selectedCategory != null

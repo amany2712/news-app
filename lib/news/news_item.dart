@@ -6,11 +6,7 @@ import 'package:news/widgets/loading_indicator.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
 class NewsItem extends StatelessWidget {
-  const NewsItem(
-    this.news,
-    {
-    super.key
-    });
+  const NewsItem(this.news, {super.key});
 
   final News news;
 

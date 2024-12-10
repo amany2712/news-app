@@ -39,7 +39,7 @@ class _SourcesTabsState extends State<SourcesTabs> {
                       ))
                   .toList()),
         ),
-         Expanded(
+        Expanded(
           child: NewsList(widget.sources[selectedTabIndex].id!),
         )
       ],

@@ -1,6 +1,7 @@
+
 import 'source.dart';
 
-class News {
+class Article {
   final Source? source;
   final String? author;
   final String? title;
@@ -10,7 +11,7 @@ class News {
   final String? publishedAt;
   final String? content;
 
-  const News({
+  const Article({
     this.source,
     this.author,
     this.title,
@@ -21,7 +22,7 @@ class News {
     this.content,
   });
 
-  factory News.fromJson(Map<String, dynamic> json) => News(
+  factory Article.fromJson(Map<String, dynamic> json) => Article(
         source: json['source'] == null
             ? null
             : Source.fromJson(json['source'] as Map<String, dynamic>),
@@ -33,4 +34,6 @@ class News {
         publishedAt: json['publishedAt'] as String?,
         content: json['content'] as String?,
       );
+
+ 
 }
