@@ -42,12 +42,13 @@ class NewsItem extends StatelessWidget {
           const SizedBox(
             height: 4,
           ),
-          Text(
-            news.title ?? '',
-            style: titleSmallStyle?.copyWith(
-              fontWeight: FontWeight.w500,
+           Text(
+              news.title ?? '',
+              style: titleSmallStyle?.copyWith(
+                fontWeight: FontWeight.w500,
+              ),
             ),
-          ),
+          
           const SizedBox(
             height: 2,
           ),

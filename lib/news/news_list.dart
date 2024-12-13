@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news/api/api_service.dart';
+import 'package:news/news/news_details.dart';
 import 'package:news/news/news_item.dart';
 import 'package:news/widgets/error_indicator.dart';
 import 'package:news/widgets/loading_indicator.dart';
@@ -24,7 +25,13 @@ class NewsList extends StatelessWidget {
         } else {
           final newList = snapshot.data?.news ?? [];
           return ListView.builder(
-            itemBuilder: (_, index) => NewsItem(newList[index]),
+            itemBuilder: (_, index) => GestureDetector(
+              onTap: () => Navigator.of(context).pushNamed(
+              NewsDetails.routeHome,
+              arguments: NewsItem(newList[index]),
+              ),
+              child: NewsItem(newList[index])
+              ),
             itemCount: newList.length,
           );
         }

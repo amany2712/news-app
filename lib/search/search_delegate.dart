@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news/api/api_service.dart';
 import 'package:news/app_theme.dart';
+import 'package:news/news/news_details.dart';
 import 'package:news/news/news_item.dart';
 import 'package:news/widgets/error_indicator.dart';
 import 'package:news/widgets/loading_indicator.dart';
@@ -51,15 +52,21 @@ class NewsSearchDelegate extends SearchDelegate {
 
     return FutureBuilder(
       future:APIService.searchNews(query) , // Fetch news based on query and sourceId
-      builder: (context, snapshot) {
-       if (snapshot.connectionState == ConnectionState.waiting) {
+       builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
           return const LoadingIndicator();
         } else if (snapshot.hasError || snapshot.data?.status != 'ok') {
           return const ErrorIndicator();
         } else {
           final newList = snapshot.data?.news ?? [];
           return ListView.builder(
-            itemBuilder: (_, index) => NewsItem(newList[index]),
+            itemBuilder: (_, index) => GestureDetector(
+              onTap: () => Navigator.of(context).pushNamed(
+              NewsDetails.routeHome,
+              arguments: NewsItem(newList[index]),
+              ),
+              child: NewsItem(newList[index])
+              ),
             itemCount: newList.length,
           );
         }

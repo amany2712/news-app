@@ -1,7 +1,6 @@
 
 import 'package:news/models/news_response/article.dart';
 
-import 'article.dart';
 
 class SearchResponse {
   final String? status;
