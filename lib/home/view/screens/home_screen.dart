@@ -4,8 +4,10 @@ import 'package:news/categories/view/widgets/categories_grid.dart';
 import 'package:news/home/view/widgets/home_drawer.dart';
 import 'package:news/categories/data/models/category_model.dart';
 import 'package:news/search/view/widgets/search_delegate.dart';
-import 'package:news/settings/view/widgets/settings_tab.dart';
+import 'package:news/settings/view/screens/settings_tab.dart';
 import 'package:news/shared/app_theme.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class HomeScreen extends StatefulWidget {
   static const String routeHome = '/home';
@@ -29,8 +31,8 @@ class _HomeScreenState extends State<HomeScreen> {
           title: Text(selectedCategory != null
               ? selectedCategory!.name
               : selectedDrawerItem == DrawerItem.categories
-                  ? "News App"
-                  : "Settings"),
+                  ? AppLocalizations.of(context)!.newsApp
+                  : AppLocalizations.of(context)!.settings),
           actions: [
             IconButton(
               icon: const Icon(
